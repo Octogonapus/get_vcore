@@ -15,7 +15,7 @@
 Based on https://github.com/ajaiantilal/i7z
 GNU General Public License v2.0
 */
-uint64_t get_msr_value(int cpu, uint32_t reg, unsigned int highbit, unsigned int lowbit, int *error_indx) {
+uint64_t get_msr_value(int32_t cpu, uint32_t reg, uint8_t highbit, uint8_t lowbit, int *error_indx) {
     uint64_t data;
     int fd;
     char msr_file_name[64];

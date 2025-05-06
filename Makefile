@@ -1,6 +1,6 @@
 TARGET_EXEC := main
 
-CFLAGS := -std=c17 -D_POSIX_C_SOURCE=200809L -O3 -Werror -Wall -Wextra -Wpedantic -fstack-protector-strong -D_FORTIFY_SOURCE=2 -fPIE -fno-stack-clash-protection -ftrapv -fstack-check -fvisibility=hidden
+CFLAGS := -std=c17 -D_POSIX_C_SOURCE=200809L -O3 -Werror -Wall -Wextra -Wpedantic -Wconversion -fstack-protector-strong -D_FORTIFY_SOURCE=2 -fPIE -fno-stack-clash-protection -ftrapv -fstack-check -fvisibility=hidden
 
 SRCS := main.c
 
