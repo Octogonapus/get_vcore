@@ -8,12 +8,16 @@ BUILD_DIR := ./build
 OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)
 DEPS := $(OBJS:.o=.d)
 BIN := $(BUILD_DIR)/$(TARGET_EXEC)
-SUM := $(BUILD_DIR)/$(TARGET_EXEC).sha256
+SUM1 := $(BUILD_DIR)/$(TARGET_EXEC).sha1
+SUM256 := $(BUILD_DIR)/$(TARGET_EXEC).sha256
 
-all: $(SUM)
+all: $(SUM1) $(SUM256)
 
-$(SUM): $(BIN)
-	cd $(dir $@) && sha256sum $(notdir $(BIN)) > $(notdir $(SUM))
+$(SUM1): $(BIN)
+	cd $(dir $@) && sha1sum $(notdir $(BIN)) > $(notdir $(SUM1))
+
+$(SUM256): $(BIN)
+	cd $(dir $@) && sha256sum $(notdir $(BIN)) > $(notdir $(SUM256))
 
 $(BIN): $(OBJS)
 	$(CXX) $(OBJS) -o $@ $(LDFLAGS)

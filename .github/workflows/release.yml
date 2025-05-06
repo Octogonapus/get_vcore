@@ -21,4 +21,5 @@ jobs:
         with:
           files: |
             build/get_vcore
+            build/get_vcore.sha1
             build/get_vcore.sha256
